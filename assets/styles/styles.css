@@ -15,6 +15,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-family: "Inter", sans-serif;
+}
+
 body {
     background-color: var(--background-color);
 }
@@ -68,6 +72,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 1px 3px var(--screen-color);
     background-color: var(--button-color);
+    font-family: inherit;
     font-size: 20px;
     color: var(--font-color);
 }

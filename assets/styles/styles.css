@@ -95,3 +95,18 @@ body {
 .result {
     color: var(--operator-color);
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.github-profile {
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: var(--screen-color);
+}
+
+.github-profile > i {
+    margin-right: 7px;
+}

@@ -22,12 +22,25 @@
     color: var(--font-color);
 }
 
+.screen {
+    padding: 24px 35px;
+}
+
 .screen__input {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 12px;
     min-height: 32px;
+    font-size: 20px;
 }
 
 .screen__result {
+    display: flex;
+    justify-content: end;
+    align-items: center;
     min-height: 64px;
+    font-size: 50px;
 }
 
 .buttons {

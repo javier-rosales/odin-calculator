@@ -1,5 +1,11 @@
 :root {
+    --font-color: rgb(255, 255, 255);
+    --operator-color: rgb(235, 102, 102);
+    --action-color: rgb(38, 247, 208);
     --button-size: 55px;
+    --screen-color: rgb(34, 37, 45);
+    --buttons-area-color: rgb(41, 45, 54);
+    --button-color: rgb(39, 43, 51);
 }
 
 * {
@@ -11,6 +17,8 @@
 .calculator {
     margin: 0 auto;
     width: 350px;
+    background-color: var(--screen-color);
+    color: var(--font-color);
 }
 
 .screen__input {
@@ -27,6 +35,17 @@
     grid-auto-rows: var(--button-size);
     gap: 20px;
     justify-content: center;
+    background-color: var(--buttons-area-color);
+}
+
+.button {
+    background-color: var(--button-color);
+    color: var(--font-color);
+}
+
+.button.all-clear,
+.button.backspace {
+    color: var(--action-color);
 }
 
 .button.all-clear {
@@ -35,4 +54,9 @@
 
 .button.backspace {
     grid-column: 3 / 5;
+}
+
+.operator,
+.result {
+    color: var(--operator-color);
 }

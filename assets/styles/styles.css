@@ -15,8 +15,9 @@
 }
 
 .calculator {
-    margin: 0 auto;
+    margin: 50px auto;
     width: 350px;
+    border-radius: 24px;
     background-color: var(--screen-color);
     color: var(--font-color);
 }
@@ -38,6 +39,8 @@
     padding: 32px 0;
     border-top-left-radius: 32px;
     border-top-right-radius: 32px;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
     background-color: var(--buttons-area-color);
 }
 

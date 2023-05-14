@@ -1,4 +1,5 @@
 :root {
+    --background-color: rgb(230, 230, 230);
     --font-color: rgb(255, 255, 255);
     --operator-color: rgb(235, 102, 102);
     --action-color: rgb(38, 247, 208);
@@ -12,6 +13,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
 }
 
 .calculator {

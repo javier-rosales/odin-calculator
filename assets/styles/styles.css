@@ -39,6 +39,10 @@
 }
 
 .button {
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px var(--screen-color);
     background-color: var(--button-color);
     color: var(--font-color);
 }

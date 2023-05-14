@@ -1,5 +1,38 @@
+:root {
+    --button-size: 55px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.calculator {
+    margin: 0 auto;
+    width: 350px;
+}
+
+.screen__input {
+    min-height: 32px;
+}
+
+.screen__result {
+    min-height: 64px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, var(--button-size));
+    grid-auto-rows: var(--button-size);
+    gap: 20px;
+    justify-content: center;
+}
+
+.button.all-clear {
+    grid-column: 1 / 3;
+}
+
+.button.backspace {
+    grid-column: 3 / 5;
 }

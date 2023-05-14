@@ -35,6 +35,9 @@
     grid-auto-rows: var(--button-size);
     gap: 20px;
     justify-content: center;
+    padding: 32px 0;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
     background-color: var(--buttons-area-color);
 }
 

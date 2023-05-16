@@ -34,3 +34,24 @@ buttonsOperators.forEach(buttonOperator => {
 })
 
 buttonResult.addEventListener("click", () => updateResult())
+
+// Functionalities for input actions
+
+function updateInput(command, commandValue="") {
+    switch(command) {
+        case "all-clear":
+            // ...
+            break
+        case "backspace":
+            // ...
+            break
+        case "add-character":
+            // ...
+    }
+}
+
+// Functionalities for getting result actions
+
+function updateResult() {
+    // ...
+}

@@ -45,7 +45,9 @@ function updateInput(command, commandValue="") {
             updateScreen(input, result)
             break
         case "backspace":
-            // ...
+            input = deleteLastCharacter(input)
+            result = ""
+            updateScreen(input, result)
             break
         case "add-character":
             // ...
@@ -67,4 +69,12 @@ function updateScreen(input=false, result=false) {
     if (result || result === "") {
         resultScreen.textContent = result
     }
+}
+
+function deleteLastCharacter(text) {
+    let textArray = text.split("")
+    textArray.pop()
+    let finalText = textArray.join("")
+
+    return finalText
 }

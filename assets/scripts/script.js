@@ -40,7 +40,9 @@ buttonResult.addEventListener("click", () => updateResult())
 function updateInput(command, commandValue="") {
     switch(command) {
         case "all-clear":
-            // ...
+            input = ""
+            result = ""
+            updateScreen(input, result)
             break
         case "backspace":
             // ...
@@ -54,4 +56,15 @@ function updateInput(command, commandValue="") {
 
 function updateResult() {
     // ...
+}
+
+// Other functionalities
+
+function updateScreen(input=false, result=false) {
+    if (input || input === "") {
+        inputScreen.textContent = input
+    }
+    if (result || result === "") {
+        resultScreen.textContent = result
+    }
 }

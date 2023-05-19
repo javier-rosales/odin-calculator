@@ -136,7 +136,7 @@ function updateScreen(input=false, result=false) {
 function deleteLastCharacter(text) {
     let textArray = text.split("")
     textArray.pop()
-    let finalText = textArray.join("")
+    let finalText = textArray.join("").trimEnd()
     
     return finalText
 }

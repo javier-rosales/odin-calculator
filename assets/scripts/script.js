@@ -161,11 +161,6 @@ function getLastItem(array) {
 
 function getInputArray(input) {
     let inputArray = input.split(" ")
-    
-    if (inputArray[0] === "-") {
-        inputArray.shift()
-        inputArray[0] = `-${inputArray[0]}`
-    }
 
     return inputArray
 }

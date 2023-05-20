@@ -126,7 +126,17 @@ function updateResult() {
 
 function updateScreen(input=false, result=false) {
     if (input || input === "") {
-        inputScreen.textContent = input
+        removeChildren(inputScreen)
+        const inputArray = getInputArray(input)
+        for (let inputItem of inputArray) {
+            const inputItemType = getCharacterType(inputItem)
+            if (inputItemType === "operator") {
+                inputScreen.appendChild(getOperatorIcon(inputItem))
+            } else {
+                const textNode = document.createTextNode(inputItem)
+                inputScreen.appendChild(textNode)
+            }
+        }
     }
     if (result || result === "") {
         resultScreen.textContent = result
@@ -158,6 +168,39 @@ function getInputArray(input) {
     }
 
     return inputArray
+}
+
+function removeChildren(element) {
+    let child = element.lastChild
+
+    while (child) {
+        element.removeChild(child)
+        child = element.lastChild
+    }
+}
+
+function getOperatorIcon(type) {
+    const icon = document.createElement("i")
+    icon.classList.add("fa-solid")
+
+    switch(type) {
+        case "+":
+            icon.classList.add("fa-plus")
+            break
+        
+        case "-":
+            icon.classList.add("fa-minus")
+            break
+        
+        case "*":
+            icon.classList.add("fa-xmark")
+            break
+        
+        case "/":
+            icon.classList.add("fa-divide")
+    }
+
+    return icon
 }
 
 // Keyboard support

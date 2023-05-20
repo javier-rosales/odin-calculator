@@ -159,3 +159,28 @@ function getInputArray(input) {
 
     return inputArray
 }
+
+// Keyboard support
+
+document.body.addEventListener("keydown", event => {
+    const numbersList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    const operatorsList = ["+", "-", "*", "/"]
+    const key = event.key
+    if (numbersList.includes(key)) {
+        const buttonsNumbersArray = Array.from(buttonsNumbers)
+        const keyNumber = buttonsNumbersArray.find(buttonNumber => buttonNumber.dataset.number === key)
+        keyNumber.click()
+    } else if (operatorsList.includes(key)) {
+        const buttonsOperatorsArray = Array.from(buttonsOperators)
+        const keyOperator = buttonsOperatorsArray.find(buttonOperator => buttonOperator.dataset.operator === key)
+        keyOperator.click()
+    } else if (key === ".") {
+        buttonDecimalPoint.click()
+    } else if (key === "=") {
+        buttonResult.click()
+    } else if (key === "Backspace" && event.ctrlKey) {
+        buttonAllClear.click()
+    } else if (key === "Backspace") {
+        buttonBackspace.click()
+    }
+})

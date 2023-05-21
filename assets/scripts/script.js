@@ -33,7 +33,7 @@ buttonsOperators.forEach(buttonOperator => {
     })
 })
 
-buttonResult.addEventListener("click", () => updateResult())
+buttonResult.addEventListener("click", updateResult)
 
 // Functionalities for input actions
 

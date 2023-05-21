@@ -119,7 +119,99 @@ function getCharacterType(character) {
 // Functionalities for getting result actions
 
 function updateResult() {
-    // ...
+    result = getResult()
+
+    if (result !== "") {
+        updateScreen(false, result)
+    }
+}
+
+function getResult() {
+    const items = getInputArray(input)
+
+    // If the first item is a minus sign, join it with the second item
+    if (items.length > 1 && items[0] === "-") {
+        items.shift()
+        items[0] = `-${items[0]}`
+    }
+
+    if (
+        items.length >= 3 &&
+        getCharacterType(getLastItem(items)) === "number" &&
+        getLastCharacter(getLastItem(items)) !== "."
+    ) {
+        let isMD = true // Multiplication or Division
+        
+        while (items.length > 1) {
+            let operator
+            let currentIndex
+
+            // Look for multiplications and divisions first
+            if (isMD) {
+                for (currentIndex = 0; currentIndex < items.length; currentIndex++) {
+                    const item = items[currentIndex]
+    
+                    if (item === "*" || item === "/") {
+                        operator = item
+                        break
+                    }
+    
+                    if (currentIndex === items.length - 2) {
+                        isMD = false // There isn't any multiplication or division left
+                        break
+                    }
+                }
+            } else {
+                // Look for additions and substractions
+                for (currentIndex = 0; currentIndex < items.length; currentIndex++) {
+                    const item = items[currentIndex]
+                    if (item === "+" || item === "-") {
+                        operator = item
+                        break
+                    }
+                }
+            }
+
+            if (!operator) continue
+
+            const firstOperand = items[currentIndex - 1]
+
+            const secondOperand = items[currentIndex + 1]
+
+            const currentResult = calculate(operator, firstOperand, secondOperand)
+
+            items[currentIndex - 1] = currentResult // Replace first operand value with currentResult
+            items.splice(currentIndex, 1) // Remove current operator from the array
+            items.splice(currentIndex, 1) // Run again to remove second operand from the array
+        }
+
+        return items[0]
+    }
+
+    return ""
+}
+
+function calculate(operator, firstOperand, secondOperand) {
+    let result
+
+    switch (operator) {
+        case "+":
+            result = +firstOperand + +secondOperand
+            break
+        
+        case "-":
+            result = +firstOperand - +secondOperand
+            break
+
+        case "*":
+            result = +firstOperand * +secondOperand
+            break
+        
+        case "/":
+            return +firstOperand / +secondOperand
+    }
+
+    return String(result)
 }
 
 // Other functionalities

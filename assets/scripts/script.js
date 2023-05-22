@@ -82,10 +82,10 @@ function addCharacter(type, content) {
             newInput += ` ${content}`
         }
     } else { // type = "decimal-point"
-        const newInputArray = getInputArray(newInput)
-        const newInputArrayLastItem = getLastItem(newInputArray)
+        const newInputItems = getExpressionItems(newInput)
+        const newInputLastItem = getLastItem(newInputItems)
         if (
-            !newInputArrayLastItem.includes(".") &&
+            !newInputLastItem.includes(".") &&
             (inputLastCharacterType === "empty" ||
             inputLastCharacterType === "number")
         ) {
@@ -127,7 +127,7 @@ function updateResult() {
 }
 
 function getResult() {
-    const items = getInputArray(input)
+    const items = getExpressionItems(input)
 
     // If the first item is a minus sign, join it with the second item
     if (items.length > 1 && items[0] === "-") {
@@ -219,8 +219,8 @@ function calculate(operator, firstOperand, secondOperand) {
 function updateScreen(input=false, result=false) {
     if (input || input === "") {
         removeChildren(inputScreen)
-        const inputArray = getInputArray(input)
-        for (let inputItem of inputArray) {
+        const inputItems = getExpressionItems(input)
+        for (let inputItem of inputItems) {
             const inputItemType = getCharacterType(inputItem)
             if (inputItemType === "operator") {
                 inputScreen.appendChild(getOperatorIcon(inputItem))
@@ -251,10 +251,10 @@ function getLastItem(array) {
     return array.slice(-1)[0]
 }
 
-function getInputArray(input) {
-    let inputArray = input.split(" ")
+function getExpressionItems(expression) {
+    let expressionItems = expression.split(" ")
 
-    return inputArray
+    return expressionItems
 }
 
 function removeChildren(element) {

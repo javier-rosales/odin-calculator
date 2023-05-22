@@ -52,8 +52,19 @@ function updateInput(command, commandValue="") {
         case "add-character":
             const character = commandValue
             const characterType = getCharacterType(character)
+
+            if (result) {
+                if (characterType === "number") {
+                    input = ""
+                } else {
+                    input = result
+                }
+
+                result = ""
+            }
+
             input = addCharacter(characterType, character)
-            updateScreen(input)
+            updateScreen(input, result)
     }
 }
 

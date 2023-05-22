@@ -224,7 +224,7 @@ function calculate(operator, firstOperand, secondOperand) {
             break
         
         case "/":
-            return +firstOperand / +secondOperand
+            result = +firstOperand / +secondOperand
     }
 
     return String(result)

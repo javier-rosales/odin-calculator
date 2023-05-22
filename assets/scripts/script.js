@@ -185,6 +185,11 @@ function getResult() {
             items.splice(currentIndex, 1) // Run again to remove second operand from the array
         }
 
+        // If the final result is negative, it's resturned in the expression formatting (space between signs and numbers)
+        if (items[0] < 0) {
+            return `- ${items[0].slice(1)}`
+        }
+
         return items[0]
     }
 
@@ -220,18 +225,24 @@ function updateScreen(input=false, result=false) {
     if (input || input === "") {
         removeChildren(inputScreen)
         const inputItems = getExpressionItems(input)
-        for (let inputItem of inputItems) {
-            const inputItemType = getCharacterType(inputItem)
-            if (inputItemType === "operator") {
-                inputScreen.appendChild(getOperatorIcon(inputItem))
-            } else {
-                const textNode = document.createTextNode(inputItem)
-                inputScreen.appendChild(textNode)
-            }
-        }
+        insertItems(inputScreen, inputItems)
     }
     if (result || result === "") {
-        resultScreen.textContent = result
+        removeChildren(resultScreen)
+        const resultItems = getExpressionItems(result)
+        insertItems(resultScreen, resultItems)
+    }
+}
+
+function insertItems(screen, items) {
+    for (let item of items) {
+        const itemType = getCharacterType(item)
+        if (itemType === "operator") {
+            screen.appendChild(getOperatorIcon(item))
+        } else {
+            const textNode = document.createTextNode(item)
+            screen.appendChild(textNode)
+        }
     }
 }
 

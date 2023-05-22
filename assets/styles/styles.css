@@ -65,9 +65,15 @@ button {
     display: flex;
     justify-content: end;
     align-items: center;
+    gap: 14px;
     min-height: 64px;
     font-size: 48px;
     font-weight: 700;
+}
+
+.screen__result > i {
+    font-size: 32px;
+    color: var(--operator-color);
 }
 
 .buttons {

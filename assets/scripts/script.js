@@ -56,7 +56,7 @@ function updateInput(command, commandValue="") {
             const characterType = getCharacterType(character)
 
             if (result) {
-                if (characterType === "number") {
+                if (characterType === "number" || characterType === "decimal-point") {
                     input = ""
                 } else {
                     input = result

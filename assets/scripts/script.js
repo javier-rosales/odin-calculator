@@ -334,7 +334,7 @@ document.body.addEventListener("keydown", event => {
         keyOperator.click()
     } else if (key === ".") {
         buttonDecimalPoint.click()
-    } else if (key === "=") {
+    } else if (key === "=" || key === "Enter") {
         buttonResult.click()
     } else if (key === "Backspace" && event.ctrlKey) {
         buttonAllClear.click()

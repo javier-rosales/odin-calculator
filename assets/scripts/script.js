@@ -1,5 +1,7 @@
 // Global variables
 
+const DECIMAL_PLACES = 3
+
 let input = ""
 let result = ""
 
@@ -227,7 +229,11 @@ function calculate(operator, firstOperand, secondOperand) {
             result = +firstOperand / +secondOperand
     }
 
-    return String(result)
+    return String(roundNumber(result, DECIMAL_PLACES))
+}
+
+function roundNumber(number, places) {
+    return Math.round(number * (10 ** places)) / 10 ** places
 }
 
 // Other functionalities
